@@ -1,20 +1,14 @@
----
-mysql_root_password: ''
-drush_version: master
-
-# Major release of drupal in use (6, 7, 8, etc.). Be sure to update the core
-# version inside the drupal.make file if you change the major version here.
-drupal_major_version: 8
-
-# The path where Drupal will be downloaded and installed.
-drupal_core_path: "/var/www/drupal"
-
-drupal_domain: "drupaltest.dev"
-drupal_site_name: "Drupal Test Site"
-
-drupal_mysql_user: root
-drupal_mysql_password: ''
-drupal_mysql_database: drupal
+drupal_domain: "a-fro.dev"
+drupal_core_path: "/var/www/{{ drupal_domain }}/docroot"
+drupal_repo_url: "git@github.com:a-fro/a-fro.com.git"
+drupal_site_name: "Aaron Froehlich's Blog"
+drupal_mysql_user: drupal
+drupal_mysql_password: password
+drupal_mysql_database: dbname
+drupal_admin: admin
+drupal_admin_password: password
+drupal_theme_path: "{{ drupal_core_path }}/themes/afro"
+drupal_css_path: '../../a-fro.dev/docroot/themes/afro/css'
 
 apache_vhosts:
   - {servername: "{{ drupal_domain }}", documentroot: "{{ drupal_core_path }}"}
