@@ -1,7 +1,7 @@
 ---
 # Vagrant hostname and IP configuration.
-vagrant_hostname: drupaltest.dev
-vagrant_ip: 192.168.88.88
+vagrant_hostname: camp-demo.dev
+vagrant_ip: 192.168.82.88
 vagrant_user: vagrant
 
 # A list of synced folders, with the keys 'local_path', 'destination', 'id', and
@@ -9,11 +9,11 @@ vagrant_user: vagrant
 vagrant_synced_folders:
   # The first synced folder will be used for the default Drupal installation, if
   # build_from_makefile is 'true'.
-  - local_path: ~/Sites/drupalvm
-    destination: /var/www
+  - local_path: ~/Vagrant/camp-day-final/cornell-demo
+    destination: /var/www/cornell-demo
     id: drupal
     type: nfs
-    create: true
+    create: false
 
 # Memory and CPU to use for this VM.
 vagrant_memory: 1024
@@ -21,22 +21,22 @@ vagrant_cpus: 2
 
 # Set this to false if you are using a different site deployment strategy and
 # would like to configure 'vagrant_synced_folders' and 'apache_vhosts' manually.
-build_from_makefile: true
+build_from_makefile: false
 drush_makefile_path: /vagrant/drupal.make.yml
 
 # Settings for building a Drupal site from a makefile (if 'build_from_makefile'
 # is 'true').
-drupal_major_version: 8
-drupal_core_path: "/var/www/drupal"
-drupal_domain: "drupaltest.dev"
-drupal_site_name: "Drupal Test Site"
+drupal_major_version: 7
+drupal_core_path: "/var/www/cornell-demo"
+drupal_domain: "camp-demo.dev"
+drupal_site_name: "Cornell Camp Demo"
 drupal_install_profile: standard
 drupal_enable_modules: [ 'devel' ]
 drupal_account_name: admin
-drupal_account_pass: admin
+drupal_account_pass: testing
 drupal_mysql_user: drupal
 drupal_mysql_password: drupal
-drupal_mysql_database: drupal
+drupal_mysql_database: cornell_demo
 
 # Apache VirtualHosts. Add one for each site you are running inside the VM. For
 # multisite deployments, you can point multiple servernames at one documentroot.
